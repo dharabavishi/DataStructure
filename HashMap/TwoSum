@@ -1,0 +1,35 @@
+@implementation Solution
+	-(NSMutableArray *) twoSum:(NSArray *) A :(NSInteger) B  {
+	
+	        if(A==NULL){
+	        
+	            return NULL;
+	        }
+	        
+	        NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+	        NSMutableArray *arr = [[NSMutableArray alloc]init];
+	        for(int i=0;i<A.count;i++){
+	            
+	            int current = [[A objectAtIndex:i]intValue];
+	            int k = B-current;
+	            if([dict valueForKey:[NSString stringWithFormat:@"%d",current]]){
+	            
+	                int a =  [[dict valueForKey:[NSString stringWithFormat:@"%d",current]]intValue];
+	                [arr addObject:[NSString stringWithFormat:@"%d",a+1]];
+	                [arr addObject:[NSString stringWithFormat:@"%d",i+1]];
+	                return arr;
+	                
+	            }else{
+	            
+	                if(![dict valueForKey:[NSString stringWithFormat:@"%d",k]]){
+	                
+	                    	[dict setObject:[NSString stringWithFormat:@"%d",i] forKey:[NSString stringWithFormat:@"%d",k]];
+
+	                }
+	            }
+	        
+	        }
+	        return arr;
+	        
+	}
+@end
