@@ -1,0 +1,35 @@
+public class Solution {
+    public int nchoc(int A, ArrayList<Integer> B) {
+        
+        int count = 0;
+        TreeMap<Integer, Integer> map1 = new TreeMap<Integer, Integer>();
+        if(B==null || A==0){
+            return 0;
+        }
+        int i =0;
+        for(int m=0;m<A;m++){
+           
+           if(!map1.containsKey(i))
+           {
+               
+               count = count+B.get(i);
+               map1.put(i,(B.get(i)/2));
+           }
+           else{
+               int temp = map1.get(i);
+               count = count + temp;
+               map1.put(i,temp/2);
+               
+           }
+           i++;
+           
+           if(i==B.size()){
+               i = 0;
+               
+           }
+                 
+            
+        }
+        return count%(10^9+7);
+    }
+}
