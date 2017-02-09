@@ -1,0 +1,26 @@
+public class Solution {
+	public int searchInsert(ArrayList<Integer> a, int b) {
+	    
+	    int cnt = a.size();
+	    int start = 0;
+	    int end = cnt-1;
+	    int mid = 0;
+	    while(start<=end){
+	        
+	         mid = (start+end)/2;
+	        if(b==a.get(mid)){
+	            return mid;
+	        }else if(b<a.get(mid)){
+	            end = mid-1;
+	        }else{
+	            start = mid+1;
+	        }
+	        
+	        
+	    }
+	    
+	    return end+1;
+	    
+	    
+	}
+}
